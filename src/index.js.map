@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,SAAS,EAAC,MAAM,kBAAkB,CAAC;AAC3C,OAAO,EAAC,YAAY,EAAC,MAAM,qBAAqB,CAAC","sourcesContent":["export {AppModule} from './app/app.module';\r\nexport {AppComponent} from './app/app.component';"]}
