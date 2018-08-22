@@ -1,1 +1,1 @@
-[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./app/app.module","export":["AppModule"]},{"from":"./app/app.component","export":["AppComponent"]}]}]
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./app/app.module","export":["AppModule"]},{"from":"./app/app.component","export":["AppComponent"]},{"from":"./pxt-app-header/pxt-app-header.module","export":["PxtAppHeaderModule"]},{"from":"./pxt-app-header/pxt-app-header.component","export":["PxtAppHeaderComponent"]}]}]
