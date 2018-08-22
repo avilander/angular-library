@@ -5,7 +5,7 @@ var PxtAppHeaderComponent = /** @class */ (function () {
     PxtAppHeaderComponent.decorators = [
         { type: Component, args: [{
                     selector: 'pxt-header',
-                    template: "<mat-toolbar color=\"primary\">\n                  <span>Peixoto NavBar.</span>\n                  <!-- This fills the remaining space of the current row -->\n                  <span class=\"example-fill-remaining-space\"></span>\n                  <span></span>\n              </mat-toolbar>",
+                    templateUrl: './pxt-app-header.component.html',
                     styleUrls: ['./pxt-app-header.component.css']
                 },] },
     ];
