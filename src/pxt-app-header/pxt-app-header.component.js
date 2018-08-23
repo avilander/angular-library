@@ -1,16 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 var PxtAppHeaderComponent = /** @class */ (function () {
-    function PxtAppHeaderComponent() {
+    function PxtAppHeaderComponent(changeDetectorRef, media) {
+        this.fillerNav = Array.from({ length: 50 }, function (_, i) { return "Nav Item " + (i + 1); });
+        this.fillerContent = Array.from({ length: 50 }, function () {
+            return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\n       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\n       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat\n       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        });
+        this.shouldRun = true;
+        this.mobileQuery = media.matchMedia('(max-width: 600px)');
+        this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
+        this.mobileQuery.addListener(this._mobileQueryListener);
     }
+    PxtAppHeaderComponent.prototype.ngOnDestroy = function () {
+        this.mobileQuery.removeListener(this._mobileQueryListener);
+    };
     PxtAppHeaderComponent.decorators = [
         { type: Component, args: [{
                     selector: 'pxt-header',
-                    styles: [''],
-                    template: "<mat-toolbar color=\"primary\">\n        <span>Peixoto NavBar.</span>\n        <!-- This fills the remaining space of the current row -->\n        <span class=\"example-fill-remaining-space\"></span>\n        <span></span>\n    </mat-toolbar>"
+                    // templateUrl: './pxt-app-header.component.html',
+                    template: "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\n <mat-toolbar color=\"primary\" class=\"example-toolbar\">\n   <button mat-icon-button (click)=\"snav.toggle()\"><mat-icon>menu</mat-icon></button>\n   <h1 class=\"example-app-name\">Responsive App</h1>\n </mat-toolbar>\n\n <mat-sidenav-container class=\"example-sidenav-container\"\n                        [style.marginTop.px]=\"mobileQuery.matches ? 56 : 0\">\n   <mat-sidenav #snav [mode]=\"mobileQuery.matches ? 'over' : 'side'\"\n                [fixedInViewport]=\"mobileQuery.matches\" fixedTopGap=\"56\">\n     <mat-nav-list>\n       <a mat-list-item routerLink=\".\" *ngFor=\"let nav of fillerNav\">{{nav}}</a>\n     </mat-nav-list>\n   </mat-sidenav>\n\n   <mat-sidenav-content>\n     <p *ngFor=\"let content of fillerContent\">{{content}}</p>\n   </mat-sidenav-content>\n </mat-sidenav-container>\n</div>\n\n<div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>",
+                    styleUrls: ['./pxt-app-header.component.css']
                 },] },
     ];
     /** @nocollapse */
-    PxtAppHeaderComponent.ctorParameters = function () { return []; };
+    PxtAppHeaderComponent.ctorParameters = function () { return [
+        { type: ChangeDetectorRef },
+        { type: MediaMatcher }
+    ]; };
     return PxtAppHeaderComponent;
 }());
 export { PxtAppHeaderComponent };
