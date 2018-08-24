@@ -6,19 +6,19 @@
  */ 
 import * as i0 from "./pxt-app-sidenav.component.css.shim.ngstyle";
 import * as i1 from "@angular/core";
-import * as i2 from "../../../node_modules/@angular/material/list/typings/index.ngfactory";
+import * as i2 from "../../node_modules/@angular/material/list/typings/index.ngfactory";
 import * as i3 from "@angular/material/list";
-import * as i4 from "../../../node_modules/@angular/material/toolbar/typings/index.ngfactory";
+import * as i4 from "../../node_modules/@angular/material/toolbar/typings/index.ngfactory";
 import * as i5 from "@angular/material/toolbar";
 import * as i6 from "@angular/cdk/platform";
 import * as i7 from "@angular/common";
-import * as i8 from "../../../node_modules/@angular/material/button/typings/index.ngfactory";
+import * as i8 from "../../node_modules/@angular/material/button/typings/index.ngfactory";
 import * as i9 from "@angular/material/button";
 import * as i10 from "@angular/cdk/a11y";
 import * as i11 from "@angular/platform-browser/animations";
-import * as i12 from "../../../node_modules/@angular/material/icon/typings/index.ngfactory";
+import * as i12 from "../../node_modules/@angular/material/icon/typings/index.ngfactory";
 import * as i13 from "@angular/material/icon";
-import * as i14 from "../../../node_modules/@angular/material/sidenav/typings/index.ngfactory";
+import * as i14 from "../../node_modules/@angular/material/sidenav/typings/index.ngfactory";
 import * as i15 from "@angular/material/sidenav";
 import * as i16 from "@angular/cdk/bidi";
 import * as i17 from "./pxt-app-sidenav.component";
