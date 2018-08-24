@@ -168,7 +168,6 @@ var AngularMaterialModule = /** @class */ (function () {
 
 var PxtAppHeaderComponent = /** @class */ (function () {
     function PxtAppHeaderComponent(changeDetectorRef, media) {
-        this.pxtAppTitle = "";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
@@ -205,8 +204,8 @@ var PxtAppHeaderComponent = /** @class */ (function () {
                    
                    <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>`,
                    */
-                    template: "<mat-toolbar color=\"primary\" class=\"example-toolbar\">\n              <button mat-icon-button><mat-icon>menu</mat-icon></button>\n              <h1 class=\"example-app-name\">{{pxtAppTitle}}</h1>\n            </mat-toolbar>",
-                    styles: [".example-is-mobile .example-toolbar {\n              position: fixed;\n              z-index: 2;\n            }\n            h1.example-app-name {\n              margin-left: 8px;\n            }\n            .mat-toolbar.mat-primary {\n              background: #F4511E !important;\n              color: #fff;\n            }"]
+                    template: "<mat-toolbar color=\"primary\" class=\"example-toolbar\">\n              <button mat-icon-button><mat-icon>menu</mat-icon></button>\n              <h1 class=\"example-app-name\">{{pxtAppTitle}}</h1>\n              <button mat-raised-button color=\"primary\" class=\"buton-action\"\n                  matBadge=\"8\" matBadgePosition=\"before\" matBadgeColor=\"accent\">\n                Action\n              </button>\n              </mat-toolbar>",
+                    styles: [".example-is-mobile .example-toolbar {\n              position: fixed;\n              z-index: 2;\n            }\n            h1.example-app-name {\n              margin-left: 8px;\n            }\n            .buton-action{\n              margin-left: 83%;\n              background-color: #F4511E !important;\n            }\n            .mat-toolbar.mat-primary {\n              background: #F4511E !important;\n              color: #fff;\n            }"]
                 },] },
     ];
     /** @nocollapse */
@@ -288,15 +287,21 @@ var PxtAppSidenavModule = /** @class */ (function () {
     return PxtAppSidenavModule;
 }());
 
+var PxtAppModel = /** @class */ (function () {
+    function PxtAppModel() {
+    }
+    return PxtAppModel;
+}());
+
 var PxtAppComponent = /** @class */ (function () {
     function PxtAppComponent(changeDetectorRef, media) {
+        this.pxtAppModel = new PxtAppModel();
         this.fillerNav = Array.from({ length: 50 }, function (_, i) { return "Nav Item " + (i + 1); });
-        this.pxtAppTitle = "Title app";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
         this.mobileQuery.addListener(this._mobileQueryListener);
-        this.pxtAppTitle = "Title App";
+        // this.pxtAppTitle = "Title App"
     }
     PxtAppComponent.prototype.ngOnDestroy = function () {
         this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -313,6 +318,10 @@ var PxtAppComponent = /** @class */ (function () {
         { type: _angular_core.ChangeDetectorRef },
         { type: _angular_cdk_layout.MediaMatcher }
     ]; };
+    PxtAppComponent.propDecorators = {
+        pxtAppModel: [{ type: _angular_core.Input }],
+        pxtAppTitle: [{ type: _angular_core.Input }]
+    };
     return PxtAppComponent;
 }());
 

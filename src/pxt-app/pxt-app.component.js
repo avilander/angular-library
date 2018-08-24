@@ -1,14 +1,15 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, Input } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { PxtAppModel } from './../models/pxt-app.model';
 var PxtAppComponent = /** @class */ (function () {
     function PxtAppComponent(changeDetectorRef, media) {
+        this.pxtAppModel = new PxtAppModel();
         this.fillerNav = Array.from({ length: 50 }, function (_, i) { return "Nav Item " + (i + 1); });
-        this.pxtAppTitle = "Title app";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
         this.mobileQuery.addListener(this._mobileQueryListener);
-        this.pxtAppTitle = "Title App";
+        // this.pxtAppTitle = "Title App"
     }
     PxtAppComponent.prototype.ngOnDestroy = function () {
         this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -25,6 +26,10 @@ var PxtAppComponent = /** @class */ (function () {
         { type: ChangeDetectorRef },
         { type: MediaMatcher }
     ]; };
+    PxtAppComponent.propDecorators = {
+        pxtAppModel: [{ type: Input }],
+        pxtAppTitle: [{ type: Input }]
+    };
     return PxtAppComponent;
 }());
 export { PxtAppComponent };

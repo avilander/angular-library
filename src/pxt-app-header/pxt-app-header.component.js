@@ -2,7 +2,6 @@ import { Component, ChangeDetectorRef, Input } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 var PxtAppHeaderComponent = /** @class */ (function () {
     function PxtAppHeaderComponent(changeDetectorRef, media) {
-        this.pxtAppTitle = "";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
@@ -39,8 +38,8 @@ var PxtAppHeaderComponent = /** @class */ (function () {
                    
                    <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>`,
                    */
-                    template: "<mat-toolbar color=\"primary\" class=\"example-toolbar\">\n              <button mat-icon-button><mat-icon>menu</mat-icon></button>\n              <h1 class=\"example-app-name\">{{pxtAppTitle}}</h1>\n            </mat-toolbar>",
-                    styles: [".example-is-mobile .example-toolbar {\n              position: fixed;\n              z-index: 2;\n            }\n            h1.example-app-name {\n              margin-left: 8px;\n            }\n            .mat-toolbar.mat-primary {\n              background: #F4511E !important;\n              color: #fff;\n            }"]
+                    template: "<mat-toolbar color=\"primary\" class=\"example-toolbar\">\n              <button mat-icon-button><mat-icon>menu</mat-icon></button>\n              <h1 class=\"example-app-name\">{{pxtAppTitle}}</h1>\n              <button mat-raised-button color=\"primary\" class=\"buton-action\"\n                  matBadge=\"8\" matBadgePosition=\"before\" matBadgeColor=\"accent\">\n                Action\n              </button>\n              </mat-toolbar>",
+                    styles: [".example-is-mobile .example-toolbar {\n              position: fixed;\n              z-index: 2;\n            }\n            h1.example-app-name {\n              margin-left: 8px;\n            }\n            .buton-action{\n              margin-left: 83%;\n              background-color: #F4511E !important;\n            }\n            .mat-toolbar.mat-primary {\n              background: #F4511E !important;\n              color: #fff;\n            }"]
                 },] },
     ];
     /** @nocollapse */
