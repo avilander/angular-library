@@ -3,6 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 var PxtAppComponent = /** @class */ (function () {
     function PxtAppComponent(changeDetectorRef, media) {
         this.fillerNav = Array.from({ length: 50 }, function (_, i) { return "Nav Item " + (i + 1); });
+        this.pxtAppTitle = "Title app";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
