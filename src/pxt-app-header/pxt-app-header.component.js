@@ -1,12 +1,12 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, Input } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 var PxtAppHeaderComponent = /** @class */ (function () {
     function PxtAppHeaderComponent(changeDetectorRef, media) {
+        this.pxtAppTitle = "";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
         this.mobileQuery.addListener(this._mobileQueryListener);
-        this.pxtAppTitle = "Sistemas Peixoto";
     }
     PxtAppHeaderComponent.prototype.ngOnDestroy = function () {
         this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -48,6 +48,9 @@ var PxtAppHeaderComponent = /** @class */ (function () {
         { type: ChangeDetectorRef },
         { type: MediaMatcher }
     ]; };
+    PxtAppHeaderComponent.propDecorators = {
+        pxtAppTitle: [{ type: Input }]
+    };
     return PxtAppHeaderComponent;
 }());
 export { PxtAppHeaderComponent };

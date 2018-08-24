@@ -168,11 +168,11 @@ var AngularMaterialModule = /** @class */ (function () {
 
 var PxtAppHeaderComponent = /** @class */ (function () {
     function PxtAppHeaderComponent(changeDetectorRef, media) {
+        this.pxtAppTitle = "";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
         this.mobileQuery.addListener(this._mobileQueryListener);
-        this.pxtAppTitle = "Sistemas Peixoto";
     }
     PxtAppHeaderComponent.prototype.ngOnDestroy = function () {
         this.mobileQuery.removeListener(this._mobileQueryListener);
@@ -214,6 +214,9 @@ var PxtAppHeaderComponent = /** @class */ (function () {
         { type: _angular_core.ChangeDetectorRef },
         { type: _angular_cdk_layout.MediaMatcher }
     ]; };
+    PxtAppHeaderComponent.propDecorators = {
+        pxtAppTitle: [{ type: _angular_core.Input }]
+    };
     return PxtAppHeaderComponent;
 }());
 
@@ -288,6 +291,7 @@ var PxtAppSidenavModule = /** @class */ (function () {
 var PxtAppComponent = /** @class */ (function () {
     function PxtAppComponent(changeDetectorRef, media) {
         this.fillerNav = Array.from({ length: 50 }, function (_, i) { return "Nav Item " + (i + 1); });
+        this.pxtAppTitle = "Sample";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
@@ -299,7 +303,7 @@ var PxtAppComponent = /** @class */ (function () {
     PxtAppComponent.decorators = [
         { type: _angular_core.Component, args: [{
                     selector: 'pxt-app',
-                    template: "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\n                    <pxt-header> </pxt-header>\n                </div>\n                <div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>",
+                    template: "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\n                    <pxt-header [pxtAppTitle]=\"pxtAppTitle\"> </pxt-header>\n                </div>\n                <div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>",
                     styles: [".example-container {\n              display: flex;\n              flex-direction: column;\n              position: absolute;\n              top: 0;\n              bottom: 0;\n              left: 0;\n              right: 0;\n            }"]
                 },] },
     ];

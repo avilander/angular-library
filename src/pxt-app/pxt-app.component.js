@@ -3,6 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 var PxtAppComponent = /** @class */ (function () {
     function PxtAppComponent(changeDetectorRef, media) {
         this.fillerNav = Array.from({ length: 50 }, function (_, i) { return "Nav Item " + (i + 1); });
+        this.pxtAppTitle = "Sample";
         this.shouldRun = true;
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = function () { return changeDetectorRef.detectChanges(); };
@@ -14,7 +15,7 @@ var PxtAppComponent = /** @class */ (function () {
     PxtAppComponent.decorators = [
         { type: Component, args: [{
                     selector: 'pxt-app',
-                    template: "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\n                    <pxt-header> </pxt-header>\n                </div>\n                <div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>",
+                    template: "<div class=\"example-container\" [class.example-is-mobile]=\"mobileQuery.matches\" *ngIf=\"shouldRun\">\n                    <pxt-header [pxtAppTitle]=\"pxtAppTitle\"> </pxt-header>\n                </div>\n                <div *ngIf=\"!shouldRun\">Please open on Stackblitz to see result</div>",
                     styles: [".example-container {\n              display: flex;\n              flex-direction: column;\n              position: absolute;\n              top: 0;\n              bottom: 0;\n              left: 0;\n              right: 0;\n            }"]
                 },] },
     ];
