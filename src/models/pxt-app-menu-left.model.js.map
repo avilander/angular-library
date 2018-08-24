@@ -1,0 +1,1 @@
+{"version":3,"file":"pxt-app-menu-left.model.js","sourceRoot":"","sources":["../../../src/models/pxt-app-menu-left.model.ts"],"names":[],"mappings":"AAAA;IAAA;IAGA,CAAC;IAAD,uBAAC;AAAD,CAAC,AAHD,IAGC","sourcesContent":["export class PxtMenuLeftModel{\r\n    public id : Number;\r\n    public menu:String;    \r\n}"]}

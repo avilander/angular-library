@@ -1,0 +1,1 @@
+{"version":3,"file":"pxt-app-header.model.js","sourceRoot":"","sources":["../../../src/models/pxt-app-header.model.ts"],"names":[],"mappings":"AAAA;IAAA;IAGA,CAAC;IAAD,qBAAC;AAAD,CAAC,AAHD,IAGC","sourcesContent":["export class PxtHeaderModel{\r\n    public title : String;\r\n    public actions: any[];\r\n}\r\n"]}
